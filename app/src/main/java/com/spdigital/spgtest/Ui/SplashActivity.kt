@@ -1,7 +1,8 @@
-package com.spdigital.spgtest
+package com.spdigital.spgtest.Ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.spdigital.spgtest.R
 
 class SplashActivity : AppCompatActivity() {
 
