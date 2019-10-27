@@ -13,11 +13,20 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resValue "string", "google_maps_key",
+                (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "AIzaSyB51BrDWeT2XQ1HJ9vbwA8px4GSglJr3Wg")
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            dimension "environment"
+            buildConfigField "String", "Base_Url", "\"https://api.data.gov.sg/v1/environment/psi\""
         }
     }
 }
@@ -37,5 +46,8 @@ dependencies {
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    implementation "com.google.android.gms:play-services-maps:$mapVersion"
+
 
 }
