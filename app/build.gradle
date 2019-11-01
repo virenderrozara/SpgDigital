@@ -26,7 +26,7 @@ android {
     productFlavors {
         dev {
             dimension "environment"
-            buildConfigField "String", "Base_Url", "\"https://api.data.gov.sg/v1/environment/psi\""
+            buildConfigField "String", "Base_Url", "\"https://api.data.gov.sg/v1/\""
         }
     }
 }
@@ -48,6 +48,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
     implementation "com.google.android.gms:play-services-maps:$mapVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecyle_version"
 
 
 }
