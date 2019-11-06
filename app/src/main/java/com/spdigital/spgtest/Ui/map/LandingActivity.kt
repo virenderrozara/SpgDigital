@@ -15,6 +15,9 @@ import com.google.android.gms.maps.model.Marker
 import com.spdigital.spgtest.base.BaseActivity
 import com.spdigital.spgtest.base.Injection
 import com.spdigital.spgtest.network.BaseResponse
+import com.spdigital.spgtest.utils.DATE_FORMAT_SIMPLE
+import com.spdigital.spgtest.utils.DATE_FORMAT_TIME
+import com.spdigital.spgtest.utils.DateProvider
 import com.spdigital.spgtest.utils.FormatedPsiData
 import com.spdigital.spgtest.viewmodel.PsiViewModel
 
@@ -44,8 +47,11 @@ class LandingActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     private fun getPsiInfo() {
+
         showProgress()
-        psiViewModel.getPsiInfo("2019-10-27T10:46:25", "2019-10-27T").observe(this, Observer {
+        v
+        psiViewModel.getPsiInfo(DateProvider.formattedDate(DATE_FORMAT_TIME,DateProvider.getCurrentDateTime()), DateProvider.formattedDate(
+            DATE_FORMAT_SIMPLE,DateProvider.getCurrentDateTime())).observe(this, Observer {
             hideProgress()
             it.let {
                 baseResponse = it
